@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-To-Prompt - AI 代码投喂器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 Code-To-Prompt</h1>
+            <p class="subtitle">一键将代码库转换为 AI 友好的提示词格式</p>
+        </header>
+
+        <main class="main">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <h3>拖拽文件夹到这里</h3>
+                    <p>或点击选择文件夹</p>
+                    <input type="file" id="fileInput" webkitdirectory directory multiple hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        选择文件夹
+                    </button>
+                    <p style="margin-top: 1rem; color: #6b7280; font-size: 0.875rem;">
+                        💡 提示：选择包含代码的文件夹，工具会自动排除 node_modules 等目录
+                    </p>
+                </div>
+
+                <div class="options">
+                    <div class="option-group">
+                        <label for="extensions">文件类型过滤（可选）</label>
+                        <input type="text" id="extensions" placeholder="例如: ts,tsx,js,jsx">
+                        <small>留空则包含所有文件类型</small>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="maxTokens">最大 Token 限制（可选）</label>
+                        <input type="number" id="maxTokens" placeholder="例如: 50000">
+                        <small>留空则无限制</small>
+                    </div>
+
+                    <div class="option-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="respectGitignore" checked>
+                            尊重 .gitignore 规则
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="fileCount">0</div>
+                        <div class="stat-label">文件数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="tokenCount">0</div>
+                        <div class="stat-label">Token 数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="charCount">0</div>
+                        <div class="stat-label">字符数</div>
+                    </div>
+                </div>
+
+                <div class="warning" id="warningBox" style="display: none;"></div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" id="copyBtn">
+                        📋 复制到剪贴板
+                    </button>
+                    <button class="btn btn-secondary" id="downloadBtn">
+                        💾 下载为文件
+                    </button>
+                    <button class="btn btn-secondary" id="resetBtn">
+                        🔄 重新选择
+                    </button>
+                </div>
+
+                <div class="preview">
+                    <h3>预览</h3>
+                    <div class="preview-content" id="previewContent"></div>
+                </div>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>正在处理文件...</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="tips">
+                <h4>💡 使用提示</h4>
+                <ul>
+                    <li>支持拖拽整个文件夹</li>
+                    <li>自动排除 node_modules、dist 等常见目录</li>
+                    <li>使用文件类型过滤可以减少 token 数量</li>
+                    <li>生成后可直接复制粘贴给 ChatGPT 或 Claude</li>
+                </ul>
+            </div>
+            <div class="links">
+                <a href="https://github.com/yourusername/code-to-prompt" target="_blank">GitHub</a>
+                <a href="../README.md" target="_blank">文档</a>
+                <a href="../QUICK-TIPS.md" target="_blank">使用技巧</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
