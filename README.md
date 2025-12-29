@@ -192,9 +192,9 @@ MIT - 查看 [LICENSE](./LICENSE) 文件了解详情
 ## 📞 Support
 
 - 📖 [文档](./README.md)
-- 🐛 [报告 Bug](https://github.com/yourusername/code-to-prompt/issues)
-- 💡 [功能建议](https://github.com/yourusername/code-to-prompt/issues)
-- 💬 [讨论](https://github.com/yourusername/code-to-prompt/discussions)
+- 🐛 [报告 Bug](https://github.com/Dvesiz/Code-To-Prompt/issues)
+- 💡 [功能建议](https://github.com/Dvesiz/Code-To-Prompt/issues)
+- 💬 [讨论](https://github.com/Dvesiz/Code-To-Prompt/discussions)
 
 ---
 
